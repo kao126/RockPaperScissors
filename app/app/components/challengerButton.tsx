@@ -7,8 +7,8 @@ import ScissorsB from '../../public/Scissors_B.png'
 
 interface ChallengerButtonProps {
   // プロパティの型などを定義
-  id: Number;
-  symbol: String;
+  // id: Number;
+  // symbol: String;
 }
 
 const ChallengerButton: React.FC<ChallengerButtonProps> = (props) => {

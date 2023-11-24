@@ -8,8 +8,8 @@ import Scissors from '../../public/Scissors.png'
 
 interface ButtonProps {
   // プロパティの型などを定義
-  id: Number;
-  symbol: String;
+  // id: Number;
+  // symbol: String;
 }
 
 const Button: React.FC<ButtonProps> = (props) => {
