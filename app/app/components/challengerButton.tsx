@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 
-
 import RockB from '../../public/Rock_B.png'
 import PaperB from '../../public/Paper_B.png'
 import ScissorsB from '../../public/Scissors_B.png'
