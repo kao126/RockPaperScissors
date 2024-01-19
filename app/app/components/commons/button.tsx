@@ -10,7 +10,7 @@ type Props = {
 
 const Button = ({ imageData, disable }: Props) => {
   return (
-    <button disabled={disable} >
+    <button disabled={false} >
       <Image
         src={imageData}
         alt="RCP"
