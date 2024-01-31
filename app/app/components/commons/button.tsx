@@ -4,16 +4,18 @@ import type { StaticImageData } from "next/image";
 
 type Props = {
   imageData: StaticImageData;
-  disable: Boolean;
+  alt: string;
+  disable: boolean;
 };
 
-
-const Button = ({ imageData, disable }: Props) => {
+const Button = ({ imageData, alt, disable }: Props) => {
   return (
-    <button disabled={false} >
+    <button
+      disabled={disable}
+    >
       <Image
         src={imageData}
-        alt="RCP"
+        alt={alt}
         className='rounded-full shadow-md'
       />
     </button>

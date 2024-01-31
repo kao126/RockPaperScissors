@@ -15,8 +15,8 @@ import ScissorsB from '/public/Scissors_B.png'
 const Dealer = () => {
   return (
     <div className='flex flex-col h-full justify-center items-center gap-y-36'>
-      <Button imageData={Rock} disable={true} />
-      <Button imageData={PaperB} disable={true} />
+      <Button imageData={Rock} alt="グー" disable={true} />
+      <Button imageData={PaperB} alt="パー" disable={true} />
       {/* <Button imageData={Scissors} /> */}
     </div>
   );
