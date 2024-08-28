@@ -2,8 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import type { StaticImageData } from 'next/image';
-
-import { useHandSignStore } from '../../lib/store';
+import useHandSignStore from '@/app/lib/store';
 
 type Props = {
   imageData: StaticImageData;
@@ -14,7 +13,16 @@ type Props = {
 
 const Button = ({ imageData, value, alt, disable }: Props) => {
   const style = disable ? '' : 'active:translate-y-1';
-  const handleButton = useHandSignStore((state) => state.clickHandSign);
+  const handSign = useHandSignStore((state) => state.handSign);
+  const clickButton = useHandSignStore((state) => state.clickHandSign);
+  const resetButton = useHandSignStore((state) => state.reset);
+
+  const handleButton = async (value: string) => {
+    if (value == handSign) {
+      await resetButton();
+    }
+    await clickButton(value);
+  };
 
   return (
     <button

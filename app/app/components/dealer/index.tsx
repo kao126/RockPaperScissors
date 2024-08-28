@@ -10,28 +10,38 @@ import Scissors from '/public/Scissors.png';
 import RockB from '/public/Rock_B.png';
 import PaperB from '/public/Paper_B.png';
 import ScissorsB from '/public/Scissors_B.png';
-import { useHandSignStore } from '@/app/lib/store';
+import useHandSignStore from '@/app/lib/store';
+
+const HAND_SIGN_ARR = ['rock', 'paper', 'scissors'];
 
 const Dealer = () => {
   const handSign = useHandSignStore((state) => state.handSign);
-  const challengerHandSign = (handSign: string) => {
+  const selectHandSign = (handSign: string, dealer: boolean) => {
     switch (handSign) {
       case 'rock':
-        return RockB;
+        return dealer ? Rock : RockB;
       case 'paper':
-        return PaperB;
+        return dealer ? Paper : PaperB;
       case 'scissors':
-        return ScissorsB;
+        return dealer ? Scissors : ScissorsB;
       default:
-        return RockB;
+        return dealer ? Rock : RockB;
     }
   };
 
+  const randomHandSign =
+    HAND_SIGN_ARR[Math.floor(Math.random() * HAND_SIGN_ARR.length)];
+
   return handSign ? (
     <div className="flex flex-col h-full justify-center items-center gap-y-36">
-      <Button imageData={Rock} value="rock" alt="グー" disable={true} />
       <Button
-        imageData={challengerHandSign(handSign)}
+        imageData={selectHandSign(randomHandSign, true)}
+        value={randomHandSign}
+        alt={randomHandSign}
+        disable={true}
+      />
+      <Button
+        imageData={selectHandSign(handSign, false)}
         value={handSign}
         alt={handSign}
         disable={true}
